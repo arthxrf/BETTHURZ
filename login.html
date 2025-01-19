@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BETTHUR777</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .input-field {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            width: 200px;
+            background-color: #222;
+            color: white;
+        }
+
+        .login-btn {
+            padding: 10px 20px;
+            background-color: gold;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background-color: darkgoldenrod;
+        }
+
+        p {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Entrar</h2>
+        <input type="text" id="username" class="input-field" placeholder="Nome de usuário" required>
+        <input type="password" id="password" class="input-field" placeholder="Senha" required>
+        <br>
+        <button class="login-btn" onclick="login()">Login</button>
+        <p>Não tem uma conta? <a href="register.html" style="color: gold;">Criar conta</a></p>
+    </div>
+
+    <script>
+        // Função para realizar o login
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Verifica se o nome de usuário e senha não estão vazios
+            if (username && password) {
+                // Verifica se o nome de usuário existe no localStorage
+                const storedPassword = localStorage.getItem(username);
+                
+                // Verifica se a senha fornecida corresponde à senha armazenada
+                if (storedPassword && storedPassword === password) {
+                    alert("Login bem-sucedido!");
+                    window.location.href = "index.html"; // Redireciona para a página principal após o login bem-sucedido
+                } else {
+                    alert("Nome de usuário ou senha incorretos.");
+                }
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Saque</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        input[type="number"] {
+            width: 60%;
+        }
+
+        button {
+            background-color: gold;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: darkgoldenrod;
+        }
+
+        .error {
+            color: red;
+            font-size: 18px;
+        }
+
+        .success {
+            color: green;
+            font-size: 18px;
+        }
+
+        .info {
+            color: yellow;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Solicitar Saque</h2>
+        <form id="saque-form">
+            <label for="valor">Valor do Saque (Máximo: R$ 250,00):</label>
+            <input type="number" id="valor" name="valor" placeholder="Digite o valor" required>
+            <br>
+            <label for="chave-pix">Escolha a chave PIX:</label>
+            <select id="chave-pix" required>
+                <option value="email">Email</option>
+                <option value="telefone">Número de Telefone</option>
+                <option value="cpf">CPF</option>
+            </select>
+            <br>
+            <input type="text" id="chave" name="chave" placeholder="Digite a chave" required>
+            <br>
+            <button type="submit">Solicitar Saque</button>
+        </form>
+        <div id="message"></div>
+        <div id="additional-info"></div>
+    </div>
+
+    <script>
+        // Função para mostrar a mensagem após 8 segundos
+        function showSaqueConcluido() {
+            setTimeout(function() {
+                const message = document.getElementById('message');
+                message.textContent = "Saque concluído!";
+                message.className = "success"; // Define a classe para sucesso
+            }, 8000); // 8 segundos em milissegundos
+        }
+
+        // Função de validação do saque
+        document.getElementById('saque-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Evita o envio do formulário
+
+            const valor = parseFloat(document.getElementById('valor').value);
+            const mensagem = document.getElementById('message');
+
+            // Verifica se o valor solicitado é maior que R$ 250,00
+            if (valor > 250) {
+                mensagem.textContent = "Erro: O valor máximo de saque é R$ 250,00.";
+                mensagem.className = "error";  // Define a classe para erro
+            } else {
+                // Se o valor for válido, exibe mensagem de sucesso
+                mensagem.textContent = "Saque em processamento...";
+                mensagem.className = "success";  // Define a classe para sucesso
+                
+                // Exibe a mensagem "Saque concluído" após 8 segundos
+                showSaqueConcluido();
+            }
+        });
+    </script>
+</body>
+</html>

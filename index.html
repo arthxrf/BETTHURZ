@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BETTHUR777</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #2e2e2e, #111); /* Gradiente de cinza para preto */
+            background-size: 400% 400%; /* Aumenta o tamanho do gradiente para animação suave */
+            animation: gradientAnimation 10s ease infinite; /* Animação do gradiente */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0;
+            min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos 100% da altura da tela */
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            display: none;
+        }
+
+        .popup-content {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: gold;
+        }
+
+        .popup button {
+            background-color: gold;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .popup button:hover {
+            background-color: darkgoldenrod;
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: gold;
+            margin-top: 20px;
+        }
+
+        .links {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .links a {
+            background-color: gold;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .links a:hover {
+            background-color: darkgoldenrod;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            background-color: gold;
+            color: black;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .button-container button:hover {
+            background-color: darkgoldenrod;
+        }
+
+        .bet-image {
+            margin-top: 20px;
+            width: 100%; /* Ajustando para que a imagem ocupe toda a largura da tela */
+            height: auto;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+            margin-top: 20px;
+        }
+
+        .image-container a {
+            width: 30%;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Estilo do botão de Perfil */
+        .perfil-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .perfil-button img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: sepia(1) saturate(5) hue-rotate(30deg); /* Filtro para deixar a imagem amarela */
+        }
+
+        .perfil-button:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Animação para mudar a cor do texto */
+        @keyframes changeColor {
+            0% {
+                color: #FFD700; /* Amarelo */
+            }
+            25% {
+                color: #FF4500; /* Laranja */
+            }
+            50% {
+                color: #32CD32; /* Verde */
+            }
+            75% {
+                color: #1E90FF; /* Azul */
+            }
+            100% {
+                color: #8A2BE2; /* Roxo */
+            }
+        }
+
+        /* Aplicando a animação de cor ao texto */
+        .animated-text {
+            font-size: 32px;
+            font-weight: bold;
+            animation: changeColor 5s infinite; /* A animação dura 5 segundos e se repete infinitamente */
+        }
+
+        /* Estilo para o título BETTHUR3X7 */
+        .betthursx7-title {
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(45deg, #FFD700, #FF4500, #32CD32); /* Gradiente personalizado */
+            -webkit-background-clip: text; /* Faz o gradiente aparecer no texto */
+            color: transparent; /* Deixa o texto transparente para o gradiente aparecer */
+            margin: 50px 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Banner preto abaixo do título */
+        .banner {
+            background-color: #000; /* Cor preta */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Estilo do Jackpot */
+        .jackpot {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FFD700; /* Números dourados */
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #8B0000; /* Fundo vermelho */
+            border-radius: 15px;
+            width: 60%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border: 3px solid #FFD700; /* Borda dourada */
+        }
+    </style>
+</head>
+<body>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Você precisa fazer login para acessar o site!</h2>
+            <button onclick="window.location.href='login.html'">Fazer Login</button>
+        </div>
+    </div>
+
+    <div class="links">
+        <a href="login.html">Login</a>
+        <a href="#">Saldo: R$ 250,00</a>
+        <a href="https://livepix.gg/massath" class="deposito-link">Depósito</a>
+        <!-- Botão de Solicitação de Saque -->
+        <a href="saque.html" class="saque-link">Solicitar Saque</a>
+    </div>
+
+    <!-- Imagem no topo da página -->
+    <img src="img/imgs/BET.png" alt="BETTHUR777" class="bet-image">
+
+    <!-- Título BETTHUR3X7 com fundo próprio -->
+    <div class="betthursx7-title">
+        BETTHUR3X7
+    </div>
+
+    <div>
+        <center><big class="animated-text">DEPOSITE APENAS 25R$ E SAQUE SEU BONUS NA HORA</big></center>
+    </div>
+
+    <div class="titulo">
+        JOGOS OFICIAIS DE BETTHUR777
+    </div>
+
+    <!-- Banner preto abaixo do título -->
+    <div class="banner">
+        Bem-vindo ao BETTHUR3X7! Jogue agora e aproveite os melhores bônus!
+    </div>
+
+    <!-- Jackpot -->
+    <div class="jackpot">
+        Jackpot: <span id="jackpotValue">7,496,520</span>
+    </div>
+    <!-- Imagens lado a lado com links -->
+    <div class="image-container">
+        <a href="https://demofortunedragon.com/"><img src="img/imgs/dragon.png" alt="Dragon"></a>
+        <a href="https://demofortunerabbit.com/#demo"><img src="img/imgs/rabbit.png" alt="Rabbit"></a>
+        <a href="https://demofortunetiger.com/#demo"><img src="img/imgs/tiger.png" alt="Tiger"></a>
+    </div>
+
+    <!-- Botão Perfil -->
+    <button class="perfil-button">
+        <img src="img/imgs/perfil.png" alt="Perfil">
+    </button>
+
+    <img src="img/imgs/pggames.jpg" alt="">
+
+
+    <script>
+        // Função para verificar se o usuário está logado
+        function checkLoginStatus() {
+            if (localStorage.getItem('userLoggedIn') === 'true') {
+                document.getElementById('popup').style.display = 'none';
+            } else {
+                document.getElementById('popup').style.display = 'flex';
+            }
+        }
+
+        // Função para formatar números com vírgulas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Função para atualizar o valor do jackpot
+        let jackpotValue = 7496520;
+        function updateJackpot() {
+            jackpotValue += Math.floor(Math.random() * 1000); // Aumenta o jackpot em um valor aleatório entre 0 e 1000
+            document.getElementById('jackpotValue').innerText = formatNumber(jackpotValue); // Aplica formatação com vírgulas
+        }
+
+        setInterval(updateJackpot, 1000); // Atualiza o jackpot a cada 1 segundo
+
+        window.onload = checkLoginStatus;
+    </script>
+</body>
+</html>

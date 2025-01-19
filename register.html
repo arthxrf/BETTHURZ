@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar - BETTHUR777</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .input-field {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            width: 200px;
+            background-color: #222;
+            color: white;
+        }
+
+        .register-btn {
+            padding: 10px 20px;
+            background-color: gold;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            background-color: darkgoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Criar uma Conta</h2>
+        <input type="text" id="new-username" class="input-field" placeholder="Nome de usuário" required>
+        <input type="password" id="new-password" class="input-field" placeholder="Senha" required>
+        <br>
+        <button class="register-btn" onclick="register()">Registrar</button>
+        <p>Já tem uma conta? <a href="login.html" style="color: gold;">Fazer login</a></p>
+    </div>
+
+    <script>
+        // Função para registrar o usuário
+        function register() {
+            const username = document.getElementById('new-username').value;
+            const password = document.getElementById('new-password').value;
+
+            // Verificando se os campos de nome de usuário e senha não estão vazios
+            if (username && password) {
+                // Verifica se o nome de usuário já está cadastrado
+                if (localStorage.getItem(username)) {
+                    alert("Este nome de usuário já está em uso. Tente outro.");
+                } else {
+                    // Salva os dados de registro no localStorage
+                    localStorage.setItem(username, password);
+                    alert("Registro bem-sucedido! Agora você pode fazer login.");
+                    window.location.href = "login.html"; // Redireciona para a página de login
+                }
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
+        }
+    </script>
+</body>
+</html>
